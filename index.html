@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zongo Forex Bureau</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+
+
+
+	<form id="rate">
+		<h2 style ="color:green">Zongo Forex Bureau</h2>
+	<select id="convertion"   required>
+		<option value="">Select convention</option>
+		<option value="cedis-to-dollars">Cedis to Dollars</option>
+		<option value="dollars-to-cedis">Dollars to Cedis</option>
+	</select><br>
+
+	<input id="amount"  type="number" placeholder="Enter amount" required><br>
+     <input type="submit" value="Get exchange" >
+
+     <div id="output"></div>
+
+	</form>
+
+    <script type="text/javascript">
+		
+     document.getElementById('rate').addEventListener( 'submit', function(event){
+     	event.preventDefault()
+
+     	var amount = document.getElementById('amount').value
+
+     	var rate = 5.87
+     	var sign = 'GH¢'
+
+     	var convertion = document.getElementById('convertion').value
+     	//console.log(convertion)
+
+     	if(convertion == 'dollars-to-cedis'){
+
+     		var exchangeAmount =  (amount * rate).toFixed(2)
+     	document.getElementById('output').innerHTML = sign + exchangeAmount
+
+     	} else if(convertion == 'cedis-to-dollars'){
+
+     		var exchangeAmount = (amount / rate).toFixed(2)
+     		var sign = '$'
+
+     	document.getElementById('output').innerHTML = sign + exchangeAmount
+
+     	}
+
+     	
+     	//var exchangeAmount = amount * rate
+     	//document.getElementById('output').innerHTML = exchangeAmount
+
+          //console.log(exchangeAmount)
+
+
+     } )
+
+
+    </script>
+
+</body>
+</html>
